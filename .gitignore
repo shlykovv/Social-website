@@ -1,0 +1,7 @@
+.venv
+.env
+db.sqlite3
+poetry.lock
+pyproject.toml
+.DS_Store
+__pycache__
