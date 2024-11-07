@@ -20,7 +20,9 @@ urlpatterns = [
 
     # url-адрес смены пароля
     path('password-change/',
-         views.ChangePasswordView.as_view(),
+         auth_view.PasswordChangeView.as_view(
+             success_url = reverse_lazy('account:password_change_done')
+         ),
          name='password_change'),
     path('password-change/done/',
          auth_view.PasswordChangeDoneView.as_view(),
@@ -46,4 +48,5 @@ urlpatterns = [
 
     # path('', include('django.contrib.auth.urls')),
     path('', views.dashboard, name='dashboard'),
+    path('register/', views.register, name='register')
 ]
