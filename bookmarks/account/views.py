@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-from account.forms import LoginForm, UserRegistrationForm
+from account.forms import UserRegistrationForm
 
 
 @login_required
 def dashboard(request):
     context = {
         'title': 'Dashboard',
-        'section': 'dashboard'
+        'section': 'dashboard',
     }
     return render(request,
                   'account/dashboard.html',
@@ -27,9 +27,10 @@ def register(request):
                 user_form.cleaned_data['password'])
             # Сохраняем объект
             new_user.save()
-            return render(request,
-                  'account/register_done.html',
-                  {'new_user': new_user})
+            return render(
+                request,
+                'account/register_done.html',
+                {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
     context = {
