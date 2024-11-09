@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+from account.models import Profile
 from account.forms import UserRegistrationForm
 
 
@@ -27,6 +28,7 @@ def register(request):
                 user_form.cleaned_data['password'])
             # Сохраняем объект
             new_user.save()
+            Profile.objects.create(user=new_user)
             return render(
                 request,
                 'account/register_done.html',
