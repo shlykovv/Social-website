@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 from account.models import Profile
 
+
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -25,14 +26,13 @@ class UserRegistrationForm(forms.ModelForm):
         model = get_user_model()
         fields = (
             'username', 'first_name', 'email')
-        
+
 
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = (
-            'first_name', 'last_name', 'email'
-        )
+            'first_name', 'last_name', 'email')
 
 
 class ProfileEditForm(forms.ModelForm):
