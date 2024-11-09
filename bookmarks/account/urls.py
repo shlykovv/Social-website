@@ -17,6 +17,7 @@ urlpatterns = [
     path('logout/',
          auth_view.LogoutView.as_view(),
          name='logged_out'),
+    path('edit/', views.edit, name='edit'),
 
     # url-адрес смены пароля
     path('password-change/',
