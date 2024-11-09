@@ -5,3 +5,5 @@ poetry.lock
 pyproject.toml
 .DS_Store
 __pycache__
+migrations/
+media/
