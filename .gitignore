@@ -6,3 +6,8 @@ pyproject.toml
 .DS_Store
 __pycache__
 media/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover

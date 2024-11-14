@@ -66,7 +66,7 @@ def register(request):
     context = {
         'title': 'Create an account',
         'user_form': user_form,
-            }
+    }
     return render(request,
                   'account/register.html',
                   context)
