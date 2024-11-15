@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='YOUR SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'testserver']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'testserver', 'mysite.com']
 
 
 # Application definition
@@ -29,6 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #OAuth2.0
+    'social_django',
+
+    #server-development
+    'django_extensions',
 
 ]
 
@@ -93,6 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 
@@ -130,3 +137,8 @@ LOGOUT_URL = 'account:logged_out'
 # E-mail
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Google OAuth2
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
